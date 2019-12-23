@@ -1,0 +1,132 @@
+@import 'colors';
+
+body {
+    color: #333;    
+    font-family: 'Roboto';
+    
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+// $orange: #f96302;
+
+header {
+    .fa-map-marker {
+        font-size: 1.8rem;
+    }   
+    
+    .fa-user-o, .fa-cart-arrow-down {
+        font-size: 1.4rem;
+    }   
+    
+    a {
+        color: inherit;
+    }
+    
+    .input-group-append {
+        button {
+            background: $orange;
+            border: $orange;
+        }
+    }
+    
+    .badge {
+        background: $orange;
+    }
+    
+    #cart {
+        color: $orange;
+        
+        @media(min-width: 991px) {
+            color: inherit;
+        }
+    }
+    
+    #marquee {
+        background: $orange;
+        color: white;    
+        border: inset $orange;
+        
+    }
+
+}
+
+#main {
+    #special-buy {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        padding: 2rem 0;
+        
+        #offer {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+    }
+    
+    #shop-by-category-heading {
+        width: 16rem;
+    }
+    
+    #apply-now-icon {
+        color: $orange;
+    }
+    
+    #location-heading {
+        width: 13rem;
+    }
+    
+    #popular-categories-heading {
+        width: 18rem;
+    }
+    
+    #popular-categories {
+        a {
+            color: inherit;
+            text-decoration: none !important;
+            
+            i {
+                color: $orange;
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+
+.link-blue {
+    color: $link-blue;
+}
+
+.primary-green {
+        color: $green;
+    }
+
+.primary-gray {
+    background-color: $gray;
+ }
+
+.section-heading {
+    border-bottom: 4px solid $orange !important;
+}
+
+
+.button-primary {
+    background-color: $orange;
+    color: white;
+    border: inset $orange 2px;
+    font-weight: bold;
+    padding: 5px 40px;
+    border-radius: 0;
+}
+
+.px-cust-5 {  
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media(min-width: 991px) {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }    
+}

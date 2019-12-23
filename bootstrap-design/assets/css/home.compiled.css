@@ -1,0 +1,120 @@
+body {
+  color: #333;
+  font-family: 'Roboto';
+}
+
+body a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header .fa-map-marker {
+  font-size: 1.8rem;
+}
+
+header .fa-user-o, header .fa-cart-arrow-down {
+  font-size: 1.4rem;
+}
+
+header a {
+  color: inherit;
+}
+
+header .input-group-append button {
+  background: #f96302;
+  border: #f96302;
+}
+
+header .badge {
+  background: #f96302;
+}
+
+header #cart {
+  color: #f96302;
+}
+
+@media (min-width: 991px) {
+  header #cart {
+    color: inherit;
+  }
+}
+
+header #marquee {
+  background: #f96302;
+  color: white;
+  border: inset #f96302;
+}
+
+#main #special-buy {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 2rem 0;
+}
+
+#main #special-buy #offer {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+#main #shop-by-category-heading {
+  width: 16rem;
+}
+
+#main #apply-now-icon {
+  color: #f96302;
+}
+
+#main #location-heading {
+  width: 13rem;
+}
+
+#main #popular-categories-heading {
+  width: 18rem;
+}
+
+#main #popular-categories a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+#main #popular-categories a i {
+  color: #f96302;
+  font-weight: bold;
+}
+
+.link-blue {
+  color: #3e7697;
+}
+
+.primary-green {
+  color: #00873c;
+}
+
+.primary-gray {
+  background-color: #eee;
+}
+
+.section-heading {
+  border-bottom: 4px solid #f96302 !important;
+}
+
+.button-primary {
+  background-color: #f96302;
+  color: white;
+  border: inset #f96302 2px;
+  font-weight: bold;
+  padding: 5px 40px;
+  border-radius: 0;
+}
+
+.px-cust-5 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 991px) {
+  .px-cust-5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
