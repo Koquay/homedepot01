@@ -1,0 +1,87 @@
+<div class="container-fluid mt-3 mb-4 d-none d-md-block" id="footer">
+    <section class="d-none d-md-block">
+        <div class="row bg-lightgray px-4 py-2">
+            <div class="col">
+                <h5 class="mb-0">More saving. More doing.®<br></h5>
+            </div>
+            <div class="col text-right"><span>Need Help? Please call us at:&nbsp;</span><a href="#" class="ml-1"><span
+                        style="text-decoration: underline;">1-800-HOME-DEPOT (1-800-466-3337)</span></a></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="row px-4">
+                    <div class="col">
+                        <h6>{{footer.customerService.title}}</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let link of footer.customerService.links">
+                                <a href="#">{{link}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h6>{{footer.resources.title}}</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let link of footer.resources.links">
+                                <a href="#">{{link}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h6>{{footer.aboutUs.title}}</h6>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let link of footer.aboutUs.links">
+                                <a href="#">{{link}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <div class="row bg-lightgray">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body bg-lightgray">
+                                        <div class="row">
+                                            <div class="col"><span><i
+                                                        class="fa fa-credit-card-alt f-1pt2"></i></span><span
+                                                    class="ml-2 f-pt9">Special Financing Available everyday*</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col"><a href="#">Pay &amp; Manage Your Card</a></div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col"><a href="#">Credit Offers</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col pl-0"><span class="f-pt9">Get $5 off when you sign up for emails with
+                                    savings and tips.</span></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col pl-0">
+                                <div class="input-group">
+                                    <div class="input-group-prepend"></div><input class="form-control" type="text"
+                                        placeholder="Enter Email Address">
+                                    <div class="input-group-append">
+                                        <button
+                                            class="btn btn-primary bg-primary-orange font-weight-bold border-inset border-orange"
+                                            type="button">Go!</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col pl-0"><i class="fa fa-facebook-official f-2 c-darkgray"></i></div>
+                            <div class="col pl-0"><i class="fa fa-twitter-square f-2 c-darkgray"></i></div>
+                            <div class="col pl-0"><i class="fa fa-pinterest-square f-2 c-darkgray"></i></div>
+                            <div class="col pl-0"><i class="fa fa-yc f-2 c-darkgray"></i></div>
+                            <div class="col pl-0"><i class="fa fa-book f-2 c-darkgray"></i></div>
+                            <div class="col pl-0"><i class="fa fa-cc-jcb f-2 c-darkgray"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

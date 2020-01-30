@@ -1,0 +1,360 @@
+<div class="container-fluid bg-eee px-cust-5">
+    <div class="row">
+        <div class="col-12 bg-white col-md-7 col-xl-8 order-1 order-md-0" id="left-col">
+            <section id="header-section">
+                <div class="row d-none d-md-block">
+                    <div class="col d-md-flex d-xl-flex align-items-md-center align-items-xl-center">
+                        <img class="img-fluid" src="assets/img/hdlogo.jpg" style="width: 4rem;">
+                        <span id="page-header" class="ml-1">Secure Checkout</span>
+                    </div>
+                </div>
+            </section>
+            <form>
+                <section id="delivery-section">
+                    <div class="form-row mt-4">
+                        <div class="col">
+                            <span class="section-header">Delivery</span>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12 col-md-6"><label>First Name</label>
+                            <input class="form-control" type="text" required name="firstName"
+                                [(ngModel)]="delivery.firstName" #firstName="ngModel">
+                            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                <div *ngIf="firstName.errors.required" class="c-red">
+                                    First name is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6"><label>Last Name</label>
+                            <input class="form-control" type="text" required name="lastName"
+                                [(ngModel)]="delivery.lastName" #lastName="ngModel">
+                            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                <div *ngIf="lastName.errors.required" class="c-red">
+                                    last name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12">
+                            <label>Email</label>
+                            <input class="form-control" type="text" required name="email" [(ngModel)]="delivery.email"
+                                #email="ngModel">
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <div *ngIf="email.errors.required" class="c-red">
+                                    Email is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12">
+                            <label>Phone</label>
+                            <input class="form-control" type="text" required name="phone" [(ngModel)]="delivery.phone"
+                                #phone="ngModel">
+                            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                <div *ngIf="phone.errors.required" class="c-red">
+                                    phone is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12">
+                            <label>Address Line 1</label>
+                            <input class="form-control" type="text" required name="shippingAddress"
+                                [(ngModel)]="delivery.shippingAddress" #shippingAddress="ngModel">
+                            <div *ngIf="shippingAddress.invalid && (shippingAddress.dirty || shippingAddress.touched)">
+                                <div *ngIf="shippingAddress.errors.required" class="c-red">
+                                    Shipping address is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12 col-md-6"><label>Zip Code</label>
+                            <input class="form-control" type="text" minlength="5" required="" maxlength="5"
+                                name="zipCode" [(ngModel)]="delivery.zipCode" #zipCode="ngModel">
+                            <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+                                <div *ngIf="zipCode.errors.required" class="c-red">
+                                    Zip Code is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label>City, State</label>
+                            <select class="form-control border-outset" required name="cityState"
+                                [(ngModel)]="delivery.cityState" #cityState="ngModel">
+                                <option></option>
+                                <option *ngFor="let cityState of citiesStates">
+                                    {{cityState.city.concat(', ').concat(cityState.state)}}
+                                </option>
+                            </select>
+                            <div *ngIf="cityState.invalid && (cityState.dirty || cityState.touched)">
+                                <div *ngIf="cityState.errors.required" class="c-red">
+                                    cityState is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="formCheck-1" checked
+                                    name="useAsBillingAddress" [(ngModel)]="delivery.useAsBillingAddress"
+                                    #useAsBillingAddress="ngModel">
+                                <label class="form-check-label" for="formCheck-1">Use as Billing Address</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-12">
+                            <h5>Let's nail down your appliance delivery.</h5>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-3 col-lg-2">
+                            <img class="img-fluid d-block" src="assets/img/pip-icons-delivery-truck.png">
+                            <span class="mr-1">{{cartItems.length}}</span>
+                            <span>Items</span>
+                        </div>
+                        <div class="col col-md-6">
+                            <h6 class="font-weight-bold">Earliest Available Date</h6>
+                            <input class="form-control" type="date" required name="deliveryDate"
+                                [(ngModel)]="delivery.deliveryDate" #deliveryDate="ngModel">
+                            <div *ngIf="deliveryDate.invalid && (deliveryDate.dirty || deliveryDate.touched)">
+                                <div *ngIf="deliveryDate.errors.required" class="c-red">
+                                    deliveryDate is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col offset-xl-2"><span>We'll call the business day before with your projected 4-hour
+                                delivery window.</span><label class="d-block mt-4">Any details that might help us?
+                                (Optional)</label>
+                            <textarea class="form-control" name="specialInstruction"
+                                [(ngModel)]="delivery.specialInstruction" #specialInstruction="ngModel">
+                                </textarea>
+                        </div>
+                    </div>
+                </section>
+                <section id="payment-section">
+                    <div class="form-row mt-4">
+                        <div class="col"><span class="section-header">Payment</span>
+                        </div>
+
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="formCheck-2" name="paymentType"
+                                    [(ngModel)]="payment.paymentType" #paymentType="ngModel" value="PayPal">
+                                <label class="form-check-label" for="formCheck-2">
+                                    <img class="img-fluid" src="assets/img/paypal.png" style="width: 5rem;">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="formCheck-3" name="paymentType"
+                                    [(ngModel)]="payment.paymentType" #paymentType="ngModel" value="Credit Card">
+                                <label class="form-check-label" for="formCheck-3">Credit Card</label>
+                            </div>
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-credit-card-alt"></i>
+                                    </span>
+                                </div>
+                                <input class="form-control" type="text" placeholder="Enter credit card number" required
+                                    name="cardNumber" [(ngModel)]="payment.cardNumber" #cardNumber="ngModel">
+                                <div *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)">
+                                    <div *ngIf="cardNumber.errors.required" class="c-red">
+                                        cardNumber is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col">
+                            <label>Expiration</label>
+                            <select class="form-control border-outset" required name="expMonth"
+                                [(ngModel)]="payment.expMonth" #expMonth="ngModel">
+                                <option value="" selected="">Month</option>
+                                <option *ngFor="let month of expMonths">
+                                    {{month.month}}
+                                </option>
+                            </select>
+                            <div *ngIf="expMonth.invalid && (expMonth.dirty || expMonth.touched)">
+                                <div *ngIf="expMonth.errors.required" class="c-red">
+                                    expMonth is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label>&nbsp;</label>
+                            <select class="form-control border-outset" required name="expYear"
+                                [(ngModel)]="payment.expYear" #expYear="ngModel">
+                                <option value="" selected="">Month</option>
+                                <option *ngFor="let year of expYears">
+                                    {{year.year}}
+                                </option>
+                            </select>
+                            <div *ngIf="expYear.invalid && (expYear.dirty || expYear.touched)">
+                                <div *ngIf="expYear.errors.required" class="c-red">
+                                    expYear is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"><label>CW</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="fa fa-credit-card-alt"></i></span>
+                                </div>
+                                <input class="form-control" type="text" required name="cw" [(ngModel)]="payment.cw"
+                                    #cw="ngModel">
+                                <div *ngIf="payment.cw.invalid && (payment.cw.dirty || payment.cw.touched)">
+                                    <div *ngIf="cw.errors.required" class="c-red">
+                                        CW is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row mt-5">
+                        <div class="col">
+                            <button class="btn btn-primary button" id="btn-place-order" type="button"
+                                (click)="placeOrder()">
+                                Place Order
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+            </form>
+
+        </div>
+        <div class="col" id="right-col">
+            <div class="row d-md-none">
+                <div class="col bg-white right-inner-col"><img class="img-fluid" src="assets/img/hdlogo.jpg"
+                        style="width: 4rem;"><span id="page-header" class="ml-1">Secure Checkout</span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col bg-white right-inner-col">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-7 d-xl-flex align-items-xl-center">
+                            <span class="f-1pt5">
+                                <span class="mr-1">Your Order</span>
+                                <span class="font-weight-bold d-block d-lg-inline-block">
+                                    {{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-5 d-flex justify-content-end">
+                            <a class="c-blue" [routerLink]="['/cart']">
+                                <span>Edit Cart (</span><span>{{cartItems.length}}</span><span>)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-white right-inner-col">
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            <img class="img-fluid" src="assets/img/pip-icons-nstallation.png">
+                            <span class="ml-2 font-weight-bold">Appliance Delivery</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let item of cartItems">
+                        <div class="col-3">
+                            <img class="img-fluid" src="assets/img/{{item.product.image[0]}}">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="mr-1 font-weight-bold">{{item.product.brand}}</span>
+                                    <span>{{item.product.name}}</span>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <span class="mr-1">Qty:</span>
+                                    <span>{{item.quantity}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <span class="m-ln-1">{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}</span>
+                        </div>
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-white right-inner-col">
+                    <div class="row font-weight-bold">
+                        <div class="col"><span>Subtotal</span>
+                        </div>
+                        <div class="col text-right">
+                            <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col"><span>Sales Tax</span>
+                        </div>
+                        <div class="col text-right">
+                            <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><span>Discount</span>
+                        </div>
+                        <div class="col text-right">
+                            <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span>Appliance Delivery&nbsp;&nbsp;</span>
+                        </div>
+                        <div class="col text-right">
+                            <span>FREE</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+
+                        </div>
+
+                    </div>
+                    <div class="row font-weight-bold f-1pt3">
+                        <div class="col">
+                            <span>Total</span>
+                        </div>
+                        <div class="col text-right">
+                            <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <app-footer></app-footer> -->

@@ -1,0 +1,154 @@
+<app-header></app-header>
+<app-message></app-message>
+<div class="container-fluid px-cust-5" id="brand">
+    <!-- <section>
+        <div class="row">
+            <div class="col">
+                <ol class="breadcrumb px-0 pb-0">
+                    <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
+                    <li class="breadcrumb-item"><a href="#"><span>Appliances</span></a></li>
+                </ol>
+            </div>
+        </div>
+    </section> -->
+    <section>
+        <div class="row">
+            <div class="col">
+                <span id="numberOfItems">Shop
+                    <span id="count">{{productCount}}</span> products <br>
+                </span>
+            </div>
+        </div>
+        <div class="row text-center mt-4 d-none d-lg-block">
+            <div class="col">
+                <img class="img-fluid" src="assets/img/Amana-Kitchen-Custom-AMA-Kitchen-Browse-Banner-447225.png">
+            </div>
+        </div>
+    </section>
+    <section id="main-section" class="mt-5">
+        <div class="row">
+            <div class="col-2 d-none d-lg-block" id="sidebar" style="border-right: 1px solid #c3c3c3;">
+                <div class="row mb-2">
+                    <div class="col">
+                        <h5 class="font-weight-bold">{{brandFilters.brandFilter.title}}</h5>
+                        <div>
+                            <div class="form-check mb-2" *ngFor="let filter of brandFilters.brandFilter.brands">
+                                <input class="form-check-input" type="checkbox" id="formCheck-1"
+                                    [(ngModel)]="filter.checked" (change)="resetPageNoAndFilterProducts()">
+                                <label class="form-check-label" for="formCheck-1">{{filter.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <h5 class="font-weight-bold">{{brandFilters.priceFilter.title}}</h5>
+                        <div>
+                            <div class="form-check mb-2" *ngFor="let filter of brandFilters.priceFilter.priceRange">
+                                <input class="form-check-input" type="checkbox" id="formCheck-1"
+                                    [(ngModel)]="filter.checked" (change)="resetPageNoAndFilterProducts()">
+                                <label class="form-check-label" for="formCheck-1">{{filter.label}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col">
+                        <h5>Review Rating</h5>
+                        <ngb-rating [(rate)]="brandFilters.ratingFilter.rating" [max]=5
+                            (rateChange)="resetPageNoAndFilterProducts()">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star2" [class.filled]="fill === 100">&#9733;</span>
+                            </ng-template>
+                        </ngb-rating>
+                        <div class="row">
+                            <div class="col"><small>Please choose a rating.<br></small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-10" id="main">
+                <div class="row">
+                    <div class="col text-right">
+                        <select id="filters" class="py-2 px-5 border-outset"
+                            (change)="sortProductsBy($event.target.value)">
+                            <option *ngFor="let filter of brandFilters.sortFilters.filters" [value]="filter.id">
+                                {{filter.title}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 col-lg-3 mb-3" *ngFor="let product of products">
+                        <div class="row">
+                            <div class="col-5 col-lg-12 img-col">
+                                <a [routerLink]="['/selected-product', product._id]">
+                                    <img class="img-fluid img-1" src="assets/img/{{product.image[0]}}">
+                                    <img class="img-fluid img-2" src="assets/img/{{product.image[1]}}">
+                                </a>
+                            </div>
+                            <div class="col-7 col-lg-12">
+                                <a [routerLink]="['/selected-product', product._id]">
+                                    <span>
+                                        <span class="mr-1 font-weight-bold">{{product.brand}}</span>
+                                        <span>{{product.name}}</span>
+                                    </span>
+                                </a>
+                                <span class="d-block">
+                                    <span class="mr-1">Model#</span>
+                                    <span>{{product.model}}</span>
+                                </span>
+                                <span id="rating">
+                                    <ngb-rating [(rate)]="product.rating" [max]=5>
+                                        <ng-template let-fill="fill" let-index="index">
+                                            <span class="star2" [class.filled]="fill === 100">&#9733;</span>
+                                        </ng-template>
+                                    </ngb-rating>
+                                </span>
+                                <span class="d-flex d-lg-flex align-items-center d-block">
+                                    <span class="mr-1">
+                                        <img class="img-fluid" src="assets/img/special-buy1.png"></span>
+                                    <span class="d-inline-block">
+                                        <span class="mr-1 d-block font-weight-bold price">
+                                            {{product.price | currency:'USD':'symbol-narrow'}}
+                                        </span>
+                                        <span class="list-price d-block strikethrough">
+                                            {{product.list_price | currency:'USD':'symbol-narrow'}}
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="saving">
+                                    <span class="mr-1">{{product.price | percentSaved:product.list_price}}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row mt-2">
+                    <div class="col d-flex justify-content-center">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" (click)="getPageByDirection('«')" aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                    </a>
+                                </li>
+                                <li class="page-item" *ngFor="let pageNo of pages">
+                                    <a class="page-link" (click)="getPage(pageNo)">{{pageNo}}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" (click)="getPageByDirection('»')" aria-label="Next">
+                                        <span aria-hidden="true">»</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-footer></app-footer>

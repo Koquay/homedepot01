@@ -1,0 +1,43 @@
+
+$primary: #0277bd; 
+$secondary: #004c8c;
+$tertiary: #58a5f0;
+$button-blue: #4d82cb;;
+$modal-success-background: white;
+
+.row {
+    // background-color: #f2b8b8;
+    // color: red;
+}
+
+i {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+.alertInfoClass
+.alertSuccessClass {
+    background-color: white;
+    color: initial;
+}
+
+.alertDangerClass
+ {
+    background-color: #f2b8b8;
+    color: red;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.f-2 {
+    font-size: 2rem;
+}
+
+.modal {
+    button {
+        background: #f96302;
+    }
+}

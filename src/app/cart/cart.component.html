@@ -1,0 +1,236 @@
+<app-header></app-header>
+<div class="container-fluid px-cust-5">
+    <section id="main-section" class="section-padding">
+        <div class="row">
+            <div class="col-12 col-xl-8" id="left-col">
+                <section class="d-none d-xl-block">
+                    <div class="row bg-eee mt-3 mr-2 px-2 pt-3 pb-1">
+                        <div class="col-3 col-20perc"><img class="img-fluid" src="assets/img/thd_cc.png"></div>
+                        <div class="col-7">
+                            <h6 class="font-weight-bold">Pay $254 per Month* When You Use Your Card</h6>
+                            <p class="f-pt9">$254 per month* suggested payments with 6 months financing on this $1518.66
+                                purchase when you use The Home Depot Consumer Credit Card. View Details</p>
+                        </div>
+                        <div class="col"><small>Don't have a card?</small><button class="btn btn-primary button"
+                                type="button"><strong>Apply Now</strong></button></div>
+                    </div>
+                </section>
+                <div class="row mt-5">
+                    <div class="col"><span class="section-header">Shopping Cart</span></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col" id="free-section"><button class="btn btn-primary button d-xl-none mb-3 mt-2"
+                            id="btn-checkout" type="button">Checkout</button>
+                        <p class="mb-1">FREE Shipping on eligible items. See Details</p>
+                        <p class="mb-1">Free delivery on appliance purchases of $396 or more. See Details<br></p>
+                        <p class="mb-1 d-none d-xl-block">All appliances will be delivered to ZIP code:&nbsp;02072</p>
+                    </div>
+                </div>
+                <section class="d-none d-xl-block mt-4">
+                    <div class="row">
+                        <div class="col-2"><span class="font-weight-bold"><strong>Item</strong></span></div>
+                        <div class="col-3"><span class="font-weight-bold">&nbsp;</span></div>
+                        <div class="col-2"><span class="font-weight-bold"><strong>How To Get It</strong></span></div>
+                        <div class="col text-center"><span class="font-weight-bold"><strong>Qty</strong></span></div>
+                        <div class="col text-right"><span class="font-weight-bold"><strong>Item Total</strong></span>
+                        </div>
+                    </div>
+                    <hr>
+                </section>
+                <div class="row d-flex justify-content-between mt-3 mt-md-3">
+                    <ng-container *ngFor="let item of cartItems">
+                        <div class="col-4 col-md-2">
+                            <img class="img-fluid" src="assets/img/{{item.product.image[0]}}">
+                        </div>
+                        <div class="col-8 col-md-3">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="mr-1 font-weight-bold">{{item.product.brand}}</span>
+                                    <span>{{item.product.name}}</span>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <span>Model #</span>
+                                    <span>{{item.product.model}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center d-none d-xl-block">
+                            <span>Home Delivery</span>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <div class="row mt-3 m-md-0" id="price-row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-4 d-flex flex-column align-items-sm-center col-xl-12">
+                                            <span class="font-weight-bold d-md-none">Qty</span>
+                                            <input class="d-lg-flex text-center" type="text"
+                                                style="height: 2rem;width: 3rem;" value="1">
+                                        </div>
+                                        <div class="col-4 col-xl-12 ml-5 m-md-0">
+                                            <span class="font-weight-bold d-md-none">Price</span>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <span>{{item.product.price | currency:'USD':'symbol-narrow'}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <span
+                                                        class="strike-through">{{item.product.price | currency:'USD':'symbol-narrow'}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center c-green">
+                                                    <span
+                                                        class="c-green">{{item.product.price | percentSaved:item.product.list_price}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col text-right">
+                                    <span class="font-weight-bold d-md-none d-block">Total</span>
+                                    <span>{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}<br></span>
+                                    <a (click)="removeItem(item.product._id)">
+                                        <i class="fa fa-trash-o c-orange"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </ng-container>
+
+                </div>
+                <div class="row">
+                    <div class="col offset-md-7">
+                        <div class="row">
+                            <div class="col d-flex justify-content-between font-weight-bold">
+                                <span>Subtotal</span>
+                                <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between"><span>Appliance Delivery
+                                </span><span>FREE</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <span>Discount</span>
+                                <span>({{cartSummary.discount | currency:'USD':'symbol-narrow'}})</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <span>Sales Tax</span>
+                                <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between">
+                                <hr style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between font-weight-bold f-1pt1">
+                                <span>Total</span>
+                                <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between c-green">
+                                <span>You Saved</span>
+                                <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-none d-xl-block" id="right-col">
+                <div class="row bg-eee">
+                    <div class="col bg-white mx-4 my-3 py-2 pb-3">
+                        <div class="row">
+                            <div class="col"><span class="f-1pt5">Your Order</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr class="mt-0">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between font-weight-bold">
+                                <span>Subtotal</span>
+                                <span>{{cartSummary.subtotal | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between"><span>Appliance Delivery
+                                </span><span>FREE</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <span>Discount</span>
+                                <span>({{cartSummary.discount | currency:'USD':'symbol-narrow'}})</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                <span>Sales Tax</span>
+                                <span>{{cartSummary.tax | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between">
+                                <hr style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between font-weight-bold f-1pt1">
+                                <span>Total</span>
+                                <span>{{cartSummary.total | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between c-green">
+                                <span>You Saved</span>
+                                <span>{{cartSummary.discount | currency:'USD':'symbol-narrow'}}</span>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button class="btn btn-primary button w-100" type="button" [routerLink]="['/checkout']">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row bg-eee">
+                    <div class="col bg-white mx-4 my-3"><img class="img-fluid"
+                            src="assets/img/100-off-first-purchase.png"></div>
+                </div>
+                <div class="row bg-eee">
+                    <div class="col bg-white mx-4 my-3 py-3">
+                        <h6 class="font-weight-bold">Need Help?</h6>
+                        <p class="mb-1">See our online FAQs or phone us:</p>
+                        <p class="mb-1">Online Customer Support:1-800-430-3376</p>
+                        <p class="mb-1">Major Appliances:1-877-946-9843</p>
+                        <p class="mb-1">Custom Blinds:1-800-658-7320</p>
+                        <p class="mb-1">Call 7 days a week - 6 a.m. to 2 a.m. EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-footer></app-footer>

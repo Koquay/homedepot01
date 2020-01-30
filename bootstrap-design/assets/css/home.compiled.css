@@ -6,6 +6,7 @@ body {
 body a {
   text-decoration: none;
   cursor: pointer;
+  color: #3e7697;
 }
 
 header .fa-map-marker {

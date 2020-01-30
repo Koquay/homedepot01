@@ -1,1 +1,571 @@
-/* You can add global styles to this file, and also import other style files */
+@import './colors';
+
+body {
+    color: #333;    
+    font-family: 'Roboto';
+    
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        color: $link-blue;
+    }
+}
+
+
+.link-blue {
+    color: $link-blue;
+}
+
+.primary-orange {
+    color: $orange; 
+}
+
+.primary-green {
+        color: $green;
+    }
+
+.primary-gray {
+    background-color: $gray;
+ }
+
+.section-heading {
+    border-bottom: 4px solid $orange !important;
+}
+
+
+.button-primary {
+    background-color: $orange;
+    color: white;
+    border: inset $orange 2px;
+    font-weight: bold;
+    padding: 5px 40px;
+    border-radius: 0;
+}
+
+.px-cust-5 {  
+    padding-left: 1rem !important; 
+    padding-right: 1rem !important;
+
+    @media(min-width: 991px) {
+        padding-left: 5rem !important;
+        padding-right: 5rem !important;
+    }    
+}
+
+.bg-lightgray {
+    background: #eee !important;
+  }
+
+  .f-pt9 {
+    font-size: .9rem !important;
+  }
+
+  .strikethrough {
+    text-decoration: line-through;
+}
+
+.border-outset {
+    border: outset; 
+}
+
+// @import "/app/appliances/appliances.component.scss";
+// @import "/app/brand/brand.component.scss";
+// @import "~@angular/material/prebuilt-themes/hdorange.css";
+// @import "./styles-hdorange.css"; //for heroku deployment
+
+body {
+  font-family: 'Roboto';
+  color: #333;
+}
+
+/* to change arrow when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #f96302;
+}
+
+/* to change underline when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #f96302;
+}
+
+/* to change plceholder text when focused */
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger {
+  color: #f96302;
+}
+
+/* to change selected item color in the select list */
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #f96302;
+}
+
+.page-wrapper {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 8.8rem;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 500vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: .4s;
+    
+  }
+
+  #header {
+    z-index: 20; 
+  }
+}
+
+#free-section {
+  button {
+      width: 288px !important; 
+  }
+}
+
+
+
+.f-1pt2 {
+  font-size: 1.2rem;
+}
+.ml-pt5 {
+  margin-left: -0.2rem !important;
+}
+
+.border-outset {
+  border: outset;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: rgb(204, 204, 204);;
+  }
+  .star2 {
+    font-size: 2rem;
+    color: rgb(204, 204, 204);;
+  }
+  .filled {
+    color: #f96302;
+  }
+  .bad {
+    color: #deb0b0;
+  }
+  .filled.bad {
+    color: #ff1e1e;
+  } 
+
+  .mln-pt5 {
+    margin-left: -0.5rem;
+  }
+  
+  .strike-through {
+    text-decoration: line-through;
+  }
+  
+  .bb-orange {
+    border-bottom: 4px solid #f96302;
+  }
+  
+  .border-outset {
+    border: outset;
+  }
+  
+  .col-20perc {
+    max-width: 20% !important;
+  }
+  
+  .f-pt9 {
+    font-size: .9rem;
+  }
+  
+  .f-1pt1 {
+    font-size: 1.1rem;
+  }
+  
+  .m-ln-1 {
+    margin-left: -1rem;
+  }  
+
+  .alert {
+    z-index: 100;
+  }
+
+  .fa.fa-check {
+    color: green !important;
+    font-size: 1.3rem;
+  }
+
+  .c-orange {
+    color: #ff6600
+  }
+  
+
+  #mobile-nav {
+    padding: 0 1rem;
+    transition: all .5s;
+   
+    .multi-level, .item ul {
+        display: none;
+    }
+    
+    #menu:checked ~ .multi-level, .item input:checked ~ ul {
+        display: block;   
+    }
+    
+    input {
+        display: none;        
+    }
+    
+    .fa-bars {
+        font-size: 1.4rem;        
+    }
+
+    i {
+      color: $orange; 
+  }
+
+    li a {
+      color: $link-blue;
+      margin-left: 1rem;
+  }
+    
+}
+
+.category-item {   
+
+    &:hover {
+        font-weight: 500;
+    }
+}
+
+
+.section-header {
+  font-size: 2rem;
+  border-bottom: 4px solid #f96302;
+}
+
+
+
+
+
+
+#header #top-row a {
+  color: initial;
+  font-size: .9rem !important;
+}
+
+body {
+  font-family: 'Roboto';
+  color: #333;    
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.section-padding {
+  padding: 1rem 1rem;
+}
+
+#header-mid #logo {
+  width: 2.5rem;
+}
+
+.button {
+  background: #f96302 !important;
+  border: 2px #f96302 outset !important;
+  outline-color: #f96302 !important;
+  border-radius: 0 !important;
+  font-weight: bold !important;
+}
+
+#header #account i, a {
+  color: initial;
+}
+
+#header #account i {
+  font-size: 1.2rem;
+}
+
+#header #account .badge {
+  background-color: #f96302;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: -0.3rem;
+}
+
+@media (min-width: 992px) {
+  #header-mid #logo {
+    width: 4.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-padding {
+    padding: 0 5rem;
+  }
+}
+
+.m-tn-1 {
+  margin-top: -1rem;
+}
+
+#nav a {
+  color: initial;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.category:hover .categories {
+  visibility: visible;
+  transition: .3s;
+}
+
+.category:hover .link {
+  font-weight: bold;
+}
+
+.category:hover .link {
+  transition: .3s;
+  border-bottom: 3px solid #f96302;
+}
+
+.categories {
+  position: fixed;
+  z-index: 10;
+  padding: 1rem;
+}
+
+.categories:hover {
+  visibility: visible;
+}
+
+#marquee {
+  background-color: #f96302;
+  color: white;
+  padding: .1rem;
+  /*z-index: 1;*/
+}
+
+#instructions {
+  background-color: white;
+  color: green;
+  padding: .1rem;
+  /*z-index: 1;*/
+}
+
+@media (min-width: 1200px) {
+  #marquee {
+    padding: .1rem;
+    border: inset #f96302;
+    /*margin-top: 3rem;*/
+  }
+}
+
+#marquee-detail {
+  font-size: .9rem;
+}
+
+#nav {
+  /*position: fixed;*/
+  z-index: 10;
+}
+
+.navbar {
+}
+
+#nav a {
+  color: initial;
+}
+
+#top-section {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.bg-eee {
+  background: #eee;
+}
+
+@media (min-width: 1200px) {
+  .col-10perc {
+    max-width: 11% !important;
+  }
+}
+
+.f-roboto-bold {
+  font-weight: 900;
+}
+
+.f-1pt3 {
+  font-size: 1.3rem;
+}
+
+#top-section #main-img {
+  font-size: 1rem !important;
+  color: initial;
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  #top-section #main-img {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: white;
+    text-align: left;
+  }
+}
+
+.f-1pt5 {
+  font-size: 1.5rem;
+}
+
+#main-img button {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#main-img h1 {
+  font-weight: bold;
+}
+
+.mx-pt5 {
+  margin-left: .06px;
+  margin-right: .06px;
+}
+
+.section-header {
+  font-size: 2rem;
+  border-bottom: 4px solid #f96302;
+}
+
+.category {
+  position: relative;
+  z-index: 20;
+}
+
+.category-item:hover {   
+  font-weight: 500;
+}
+
+
+#top-section #top-right-col {
+  margin-top: 2rem;
+}
+
+@media (min-width: 1200px) {
+  #top-section #top-right-col {
+    margin-top: 0rem;
+  }
+}
+
+#main-img h1 {
+  font-size: 1.5rem !important;
+}
+
+@media (min-width: 1200px) {
+  #main-img h1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+#main-img span {
+  font-size: 1rem;
+}
+
+@media (min-width: 1200px) {
+  #main-img span {
+    font-size: 1.5rem;
+  }
+}
+
+#top-right-col img {
+  width: 100%;
+}
+
+.f-2 {
+  font-size: 2.3rem !important;
+}
+
+.short-line {
+  border-bottom: 1px solid;
+  width: 3rem;
+}
+
+#stay-ahea-heat .item-type {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  #stay-ahea-heat h5 {
+    font-size: 1.25rem;
+  }
+}
+
+.c-green {
+  color: #00873c;
+}
+
+.c-blue {
+  color: #3e7697;
+}
+
+.c-black {
+  color: #333;
+}
+
+#trending img {
+  width: 75%;
+}
+
+.c-orange {
+  color: #f96302;
+}
+
+#footer .nav-item {
+  color: #3e7697;
+}
+
+.c-gray {
+  color: rgb(204, 204, 204);
+}
+
+#dept-submenu {
+  left: 14rem;
+  top: 0rem;
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  width: 30rem;
+  height: 20rem;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-wrapper {
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 9.2rem;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 500vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: .4s;
+    
+  }
+
+  #header {
+    z-index: 20; 
+  }
+}

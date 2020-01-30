@@ -1,0 +1,54 @@
+@import '../../colors.scss';
+
+#appliances {
+    .breadcrumb {
+        background: white;
+    }
+    
+    #sidebar {
+        a {
+            color: initial;
+        }
+        
+        h6 {
+            font-weight: 900;
+        }
+    }    
+    
+    #banner-section {
+        #banner {
+            background-image:url('https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/fetch/FetchRules/Partial/D29a-BAU-ApplianceL1-Hero-Adapt.png');
+            
+            h1 {
+                color: transparent;
+            }
+        }    
+        
+        #ad-text {            
+            h1 {
+                font-weight: 900;
+            }    
+            
+            background: $gray;
+        }
+                
+        
+        #laundry-appliances {
+            hr {
+                border: initial 1px;
+                width: 30%;
+                margin-left: 0;
+            }
+            h2 {
+                width: 50%;
+            }
+            
+            i {
+                color: $orange;
+            }
+        }
+        
+    }
+    
+    
+}

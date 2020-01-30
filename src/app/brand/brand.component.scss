@@ -1,0 +1,87 @@
+@import '../../colors.scss';
+
+
+#brand {
+    .breadcrumb {
+        background: white;
+    }
+    
+    #numberOfItems {                
+        #count {
+            font-weight:  bold;
+        } 
+        
+        @media(min-width: 768px) {
+            font-size: 2rem;    
+        }
+    }
+    
+    #main-section {
+        #sidebar {
+            border-right: 1px solid #f7f6f6;
+            
+            #rating i {
+                color: #d2cfcf;
+                font-size: 1.6rem;
+            }
+        }
+        
+        #main {
+            #rating {
+                i {
+                    color: $orange;
+                }
+            } 
+            
+            .price {
+                font-size: 1.2rem; 
+            }
+            
+            .saving {
+                font-size: .8rem;
+                color: $green;
+            }
+            
+            .img-col {
+                .img-1 {
+                    display: block;
+                }
+                
+                .img-2 {
+                    display: none;
+                }
+                
+                &:hover {
+                    .img-2 {
+                        display: block;
+                    }
+                
+                    .img-1 {
+                        display: none;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+
+.star {
+    font-size: 1.5rem;
+    color: rgb(204, 204, 204);;
+  }
+  .star2 {
+    font-size: 2rem;
+    color: rgb(204, 204, 204);;
+  }
+  .filled {
+    color: #f96302;
+  }
+  .bad {
+    color: #deb0b0;
+  }
+  .filled.bad {
+    color: #ff1e1e;
+  } 
+  

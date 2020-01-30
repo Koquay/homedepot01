@@ -1,0 +1,51 @@
+#brand .breadcrumb {
+  background: white;
+}
+
+#brand #numberOfItems #count {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  #brand #numberOfItems {
+    font-size: 2rem;
+  }
+}
+
+#brand #main-section #sidebar {
+  border-right: 1px solid #f7f6f6;
+}
+
+#brand #main-section #sidebar #rating i {
+  color: #d2cfcf;
+  font-size: 1.6rem;
+}
+
+#brand #main-section #main #rating i {
+  color: #f96302;
+}
+
+#brand #main-section #main .price {
+  font-size: 1.2rem;
+}
+
+#brand #main-section #main .saving {
+  font-size: .8rem;
+  color: #00873c;
+}
+
+#brand #main-section #main .img-col .img-1 {
+  display: block;
+}
+
+#brand #main-section #main .img-col .img-2 {
+  display: none;
+}
+
+#brand #main-section #main .img-col:hover .img-2 {
+  display: block;
+}
+
+#brand #main-section #main .img-col:hover .img-1 {
+  display: none;
+}

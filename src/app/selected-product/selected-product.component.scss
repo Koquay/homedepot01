@@ -1,0 +1,78 @@
+$color-blue: #3e7697;
+$color-gold: #f96302 ;
+
+.breadcrumb {
+    span {
+        color: $color-blue;
+    }
+}
+
+#banner-section {
+    #prod-desc {
+        #brand {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        mat-list-item {
+            margin-bottom: -1.5rem;
+        }
+        
+        #price {
+            font-weight: bold;
+            
+            @media (min-width: 768px) {
+                font-size: 1.5rem;
+            }
+        }
+        
+        #free-delivery {
+            font-size: 1.2rem;
+            
+            i {
+                font-size: 1.5rem;
+            }
+        }
+        
+        #btn-add-to-cart {
+            width: 100%;   
+            background-color: $color-gold;
+            color: white;
+        }
+
+        .stainlessImgClass {
+            border-bottom: 4px solid #f96302 !important;
+          }
+          .blackImgClass{
+            border-bottom: 4px solid #f96302 !important;
+          }
+          .whiteImgClass{
+            border-bottom: 4px solid #f96302 !important;
+          }  
+                
+        
+        @media (min-width: 768px) {
+            #name {
+                font-size: 1.7rem;
+            }
+            
+            #btn-add-to-cart {
+                width: 50%;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            #btn-add-to-cart {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#specifications {
+    hr {
+        border-bottom: 2px solid #f96302;
+    }
+
+
+}

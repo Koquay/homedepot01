@@ -1,0 +1,21 @@
+@import '../../../../colors.scss';
+
+.bg-primary-orange {
+    background-color: $orange; 
+}
+
+.border-orange {
+    border-color: $orange;
+}
+
+.c-darkgray {
+    color: rgb(207,210,214);
+  }
+
+  .f-2 {
+    font-size: 2rem !important;
+  }
+
+  a {
+    color: $link-blue;
+}

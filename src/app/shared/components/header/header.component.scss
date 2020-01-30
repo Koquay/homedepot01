@@ -1,0 +1,105 @@
+@import '../../../../colors.scss';
+
+header {
+    .fa-map-marker {
+        font-size: 1.8rem;
+    }   
+    
+    .fa-user-o, .fa-cart-arrow-down {
+        font-size: 1.4rem;
+    }   
+    
+    a {
+        color: inherit;
+    }
+    
+    .input-group-append {
+        button {
+            background: $orange;
+            border: $orange;
+        }
+    }
+    
+    .badge {
+        background: $orange;
+    }
+    
+    #cart {
+        color: $orange;
+        
+        @media(min-width: 991px) {
+            color: inherit;
+        }
+    }
+    
+    #marquee {
+        background: $orange;
+        color: white;    
+        border: inset $orange;
+        
+    }
+
+    nav {
+        z-index: 10;
+    }
+    
+    .drop-down {
+        position: relative;        
+        
+        &:hover {
+            font-weight: bold;
+            // border: 1px solid $orange;
+            
+            ul {
+                display: block;                
+
+                a {
+                    font-weight: initial;
+                }
+            }
+        }
+        
+        ul {
+            position: absolute;
+            background-color: #fff;
+            width: 18rem;
+            display: none; 
+            // margin-top: .5rem;
+            
+            li {
+                padding: .2rem 1rem;
+                
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        font-weight: bold;
+                    }
+                }    
+            }
+            
+        }
+    }
+
+
+}
+
+#search-column {
+    position: relative;
+  }
+  #search-column ul {
+    position: absolute;
+    width: 75%;
+    border: 1px solid;
+    z-index: 20;
+    background: white;
+    top: 4.5rem;
+  }
+  #search-column ul li {
+    width: 100%;
+  }
+  
+  #search-column .input-group {
+    /* position: absolute; */
+  }
+  

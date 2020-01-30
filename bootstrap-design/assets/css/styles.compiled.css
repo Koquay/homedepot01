@@ -1,0 +1,44 @@
+.link-blue {
+  color: #3e7697;
+}
+
+.primary-green {
+  color: #00873c;
+}
+
+.primary-gray {
+  background-color: #eee;
+}
+
+.section-heading {
+  border-bottom: 4px solid #f96302 !important;
+}
+
+.button-primary {
+  background-color: #f96302;
+  color: white;
+  border: inset #f96302 2px;
+  font-weight: bold;
+  padding: 5px 40px;
+  border-radius: 0;
+}
+
+.px-cust-5 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 991px) {
+  .px-cust-5 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.border-outset {
+  border: outset;
+}

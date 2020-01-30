@@ -1,0 +1,26 @@
+$color-gray: #eee;
+
+#right-col {
+    background: $color-gray !important;        
+}
+
+#left-col {
+    #free-section {
+        font-size: .9rem;
+    }
+    
+    #btn-checkout {
+        padding: .5rem 6rem;
+        letter-spacing: 2px;        
+    }
+
+}
+
+.bg-white {
+    background: white;
+}
+
+.bg-eee {
+    background: $color-gray;
+}
+
