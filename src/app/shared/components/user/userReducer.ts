@@ -1,4 +1,5 @@
 import { Types } from 'src/app/reducers/types'
+import { UserActionTypes } from './user.actions'
 
 const initialState = {
     user: {
@@ -8,13 +9,13 @@ const initialState = {
 
 export const UserReducer = (state=initialState, action) => {
     switch(action.type) {
-        case Types.SET_CURRENT_USER:
+        case UserActionTypes.SET_CURRENT_USER:
             return {
                 ...state,
-                user: action.payload,                
+                user: action.user,                
             }
 
-            case Types.LOGOUT_CURRENT_USER:
+            case UserActionTypes.LOG_OUT_USER:
                     return {
                         ...state,
                         user: {isLoggedIn: false},                        

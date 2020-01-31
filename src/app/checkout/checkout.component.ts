@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { GET_CART } from '../reducers/types';
 import { CheckoutService } from './checkout.service';
 import { OrderService } from '../order/order.service';
+import { GetCartAction, CartActionTypes } from '../cart/cart.actions';
 
 @Component({
   selector: 'app-checkout',
@@ -33,27 +34,23 @@ export class CheckoutComponent implements OnInit {
   }
 
   private getCart() {
-    this.store.dispatch({
-      type: GET_CART,
-    });
+    this.store.dispatch(new GetCartAction(CartActionTypes.GET_CART))
+  
+    const cartSelector =  (state) => {return(state.cart)}
 
-    let cart$ = this.store.select('cart');
+    let cart$ = this.store.select(cartSelector);
 
     cart$.subscribe(data => {
       this.cartItems = data.cartItems;
       this.cartSummary = data.summary;
-
-      console.log('data', data)
-      console.log('cartItems', this.cartItems)
-      console.log('cartSummary', this.cartSummary)
     })
   }
 
   private getCheckoutStaticData() {
-    let staticData$ = this.store.select('checkout');
+    const checkoutSelector =  (state) => {return(state.checkout)}
+    let staticData$ = this.store.select(checkoutSelector);
 
     staticData$.subscribe(data => {
-      console.log('static data', data)
       this.citiesStates = data.citiesStates;
       this.expMonths = data.expMonths;
       this.expYears = data.expYears;      

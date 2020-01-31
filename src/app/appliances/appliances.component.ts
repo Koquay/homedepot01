@@ -17,22 +17,16 @@ export class AppliancesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getStaticDb();
     this.getAppliancesState();
   }
 
   private getAppliancesState() {
-    let appliances$ = this.store.select('appliances');
+    const appliancesSelector =  (state) => {return(state.appliances)}
+    let appliances$ = this.store.select(appliancesSelector);
     
     appliances$.subscribe(appliances => {
       this.appliances = appliances;
       console.log('appliances', this.appliances)      
-    })
-  }
-
-  private getStaticDb() {
-    this.appliancesService.getStaticDb().subscribe(db => {
-      this.staticDb = db;
     })
   }
 

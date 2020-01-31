@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { ADD_PRODUCTS } from '../reducers/types';
 import { BrandFilters } from './brand-filters';
 import { MessageService } from '../shared/message/message.service';
+import { AddToCartAction, CartActionTypes } from '../cart/cart.actions';
+import { ProductsActionTypes, AddProductsAction } from './brand.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -26,21 +28,13 @@ export class BrandService {
 
     return this.httpClient.get<{products:[], productCount:number}>(`${this.brandUrl}${queryParams}`).pipe(
       tap(productData => {
-        this.store.dispatch({
-          type: ADD_PRODUCTS,
-          payload: productData.products
-        })
-
+        this.store.dispatch(new AddProductsAction(productData.products, ProductsActionTypes.ADD_PRODUCTS))
+  
         console.log('productData', productData)
         if(productData.products.length == 0) {
           this.messageService.sendInfo('No product found.')
         }
-        
-        // let brand$ = this.store.select('brand');
-
-        // brand$.subscribe(brand => {
-        //   console.log('brand', brand)
-        // })       
+      
       }),
       catchError(error => {
         this.messageService.handleError(error);
@@ -80,17 +74,9 @@ export class BrandService {
   }
 
   public getProductsByBrand = (brand) => {
-    return this.httpClient.get(`${this.brandUrl}${brand}`).pipe(
+    return this.httpClient.get<[]>(`${this.brandUrl}${brand}`).pipe(
       tap(products => {
-        this.store.dispatch({
-          type: ADD_PRODUCTS,
-          payload: products
-        })
-        // let brand$ = this.store.select('brand');
-
-        // brand$.subscribe(brand => {
-        //   console.log('brand', brand)
-        // })       
+        this.store.dispatch(new AddProductsAction(products, ProductsActionTypes.ADD_PRODUCTS))     
       })
     )
   }

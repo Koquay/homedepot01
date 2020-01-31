@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { GET_CART, REMOVE_ITEM } from '../reducers/types';
 import { CartService } from './cart.service';
+import { GetCartAction, CartActionTypes, RemoveCartAction } from './cart.actions';
 
 @Component({
   selector: 'app-cart',
@@ -22,25 +23,20 @@ export class CartComponent implements OnInit {
   }
 
   private getCartItems() {
-    this.store.dispatch({
-      type: GET_CART,
-    });
+    this.store.dispatch(new GetCartAction(CartActionTypes.GET_CART))
+  
+    const cartSelector =  (state) => {return(state.cart)}
 
-    let cart$ = this.store.select('cart');
+    let cart$ = this.store.select(cartSelector);
 
     cart$.subscribe(cart => {
       this.cartItems = cart.cartItems
       this.cartSummary = cart.summary;
-      console.log('cart Items', cart.cartItems)
-      console.log('cart Summary', cart.summary)
     })
   }
 
   private removeItem = (id) => {
-    this.store.dispatch({
-      type: REMOVE_ITEM,
-      payload: id
-    })
+    this.store.dispatch(new RemoveCartAction(id, CartActionTypes.REMOVE_ITEM))
 
     this.getCartItems();
   }

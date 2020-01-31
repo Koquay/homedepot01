@@ -1,4 +1,5 @@
-import { ADD_PRODUCTS } from '../reducers/types'
+import { ProductsActionTypes } from './brand.actions';
+
 
 const initialState = {
     products: []
@@ -6,10 +7,10 @@ const initialState = {
 
 export const BrandReducer = (state=initialState, action) => {
     switch(action.type) {
-        case ADD_PRODUCTS:
+        case ProductsActionTypes.ADD_PRODUCTS:
             return {
                 ...state,
-                products: action.payload
+                products: action.products
             }
 
         default:

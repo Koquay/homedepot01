@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 import { ADD_TO_CART } from '../reducers/types';
+import { AddToCartAction } from '../cart/cart.actions';
 
 @Component({
   selector: 'app-selected-product',
@@ -37,8 +38,13 @@ export class SelectedProductComponent implements OnInit {
 
   private getProduct = () => {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    let brand$ = this.store.select('brand');
-    brand$.subscribe(brand => {
+
+    const productSelector =  (state) => {return(state.brand)}
+  
+    let brand2$ = this.store.select(productSelector);
+
+    brand2$.subscribe(brand => {
+      console.log('brand2', brand)
       this.product = brand.products.find(product => product._id == id)
 
       if (this.product) {
@@ -52,7 +58,6 @@ export class SelectedProductComponent implements OnInit {
   }
 
   private setProductAttributes() {
-    console.log('product', this.product)
     this.currentImage = this.product.image[0];
     this.displayImages = this.product.image;
     this.setupProductDimensions();
@@ -61,12 +66,10 @@ export class SelectedProductComponent implements OnInit {
 
 
   private addToCart() {
-    this.store.dispatch({
-      type: ADD_TO_CART,
-      payload: { product: this.product, quantity: 1 }
-    })
+    this.store.dispatch(new AddToCartAction(this.product, 1, ADD_TO_CART))
 
-    let cart$ = this.store.select('cart');
+    const cartSelector =  (state) => {return(state.cart)}
+    let cart$ = this.store.select(cartSelector);
 
     cart$.subscribe(cart => {
       localStorage.setItem('cart', JSON.stringify(cart));      

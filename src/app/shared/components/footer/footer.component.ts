@@ -18,22 +18,16 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getStaticData();    
     this.getFooter();
   }
 
   private getFooter() {
-    let footer$ = this.store.select('footer');
+    const footerSelector =  (state) => {return(state.footer)}
+    let footer$ = this.store.select(footerSelector);
     
     footer$.subscribe(footer => {
       this.footer = footer.footer;      
     })
-  }
-
-  private getStaticData = () => {
-    this.footerService.getStaticData().subscribe(data => {
-      this.staticData = data;
-    })        
   }
 
 }

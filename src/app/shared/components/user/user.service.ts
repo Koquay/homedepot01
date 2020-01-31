@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MessageService } from '../../message/message.service';
 import { Types } from 'src/app/reducers/types';
 import { Store } from '@ngrx/store';
+import { SetCurrentUserAction, UserActionTypes, LogoutUserAction } from './user.actions';
 
 
 @Injectable({
@@ -42,7 +43,7 @@ export class UserService {
   }
 
   private startloginTimer() {
-    const source = timer(360000);
+    const source = timer(3600000);
 
     const subscribe = source.subscribe(val => {
       this.signOut();
@@ -51,10 +52,8 @@ export class UserService {
 
   private saveUser = (user) => {
     user.isLoggedIn = true;
-    this.store.dispatch({
-      type: Types.SET_CURRENT_USER,
-      payload: user
-    })
+
+    this.store.dispatch(new SetCurrentUserAction(user, UserActionTypes.SET_CURRENT_USER))
 
     this.isLoggedIn = true;
     this.user = user;
@@ -72,6 +71,9 @@ export class UserService {
     this.store.dispatch({
       type: Types.LOGOUT_CURRENT_USER
     });
+
+    this.store.dispatch(new LogoutUserAction(UserActionTypes.LOG_OUT_USER))
+
     localStorage.removeItem('user');
     localStorage.removeItem('cart');
     localStorage.removeItem('product');

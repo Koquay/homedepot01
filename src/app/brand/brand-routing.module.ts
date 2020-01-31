@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: ':brand',
     component: BrandComponent,
-    canActivate: [AuthenticationGuard],
+    // canActivate: [AuthenticationGuard],
     data: {breadcrumb: 'Brand'}
   }
 ];

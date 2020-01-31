@@ -45,7 +45,8 @@ export class HeaderComponent implements OnInit {
   }
 
   private getCartItems() {
-    let cart$ = this.store.select('cart');
+    const cartSelector =  (state) => {return(state.cart)}
+    let cart$ = this.store.select(cartSelector);
 
     cart$.subscribe(cart => {
       this.cartItems = cart.cartItems
@@ -57,7 +58,8 @@ export class HeaderComponent implements OnInit {
   }
 
   private getUserLogin() {
-    let user$ = this.store.select('user');
+    const userSelector =  (state) => {return(state.user)}
+    let user$ = this.store.select(userSelector);
 
     user$.subscribe(user => {
       this.isLoggedIn = user.user.isLoggedIn;
@@ -66,7 +68,8 @@ export class HeaderComponent implements OnInit {
   }
 
   private getHeaderData = () => {
-    let header$ = this.store.select('header')
+    const headerSelector =  (state) => {return(state.header)}
+    let header$ = this.store.select(headerSelector);
 
     header$.subscribe(header => {
       this.searchItems = header.searchItems;

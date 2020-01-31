@@ -1,4 +1,4 @@
-import { ADD_TO_CART, GET_CART, REMOVE_ITEM, Types } from '../reducers/types';
+import { CartActionUnion, CartActionTypes } from './cart.actions';
 
 const initialState = {
     cartItems: [],
@@ -10,19 +10,20 @@ const initialState = {
     }
 }
 
-export const CartReducer = (state = initialState, action) => {
+export const CartReducer = (state = initialState, action: CartActionUnion) => {
     switch (action.type) {
-        case ADD_TO_CART:
+        case CartActionTypes.ADD_TO_CART:
             return {
                 ...state,
-                cartItems: [...state.cartItems, action.payload]
+                cartItems: [...state.cartItems, { product: action.product, quantity: action.quantity }]
             }
-        case GET_CART:
+
+        case CartActionTypes.GET_CART:
             let newSummary = JSON.parse(JSON.stringify(state.summary))
             newSummary.subtotal = state.cartItems.reduce((sum, item) => {
                 return sum + item.product.price * item.quantity;
             }, 0);
-            newSummary.discount = newSummary.subtotal * .25;            
+            newSummary.discount = newSummary.subtotal * .25;
             newSummary.tax = newSummary.subtotal * .10;
             newSummary.total = newSummary.subtotal - newSummary.discount + newSummary.tax;
             return {
@@ -30,17 +31,18 @@ export const CartReducer = (state = initialState, action) => {
                 summary: newSummary
             };
 
-            case Types.RESTORE_CART:
-                return {
-                    ...state,
-                    ...action.payload
-                }
-
-        case REMOVE_ITEM: 
+        case CartActionTypes.RESTORE_CART:
             return {
                 ...state,
-                cartItems: state.cartItems.filter(item => item.product._id !== action.payload)
+                ...action.cart
             }
+
+        case CartActionTypes.REMOVE_ITEM:
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(item => item.product._id !== action.id)
+            }
+
         default:
             return state;
     }
