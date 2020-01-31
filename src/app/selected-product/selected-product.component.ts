@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart/cart.service';
 import { ADD_TO_CART } from '../reducers/types';
 import { AddToCartAction } from '../cart/cart.actions';
+import { MessageService } from '../shared/message/message.service';
 
 @Component({
   selector: 'app-selected-product',
@@ -29,7 +30,8 @@ export class SelectedProductComponent implements OnInit {
   constructor(
     private store: Store<any>,
     private activatedRoute: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private messageService:MessageService
   ) { }
 
   ngOnInit() {
@@ -67,6 +69,8 @@ export class SelectedProductComponent implements OnInit {
 
   private addToCart() {
     this.store.dispatch(new AddToCartAction(this.product, 1, ADD_TO_CART))
+
+    this.messageService.sendInfo('Item added to your cart.')
 
     const cartSelector =  (state) => {return(state.cart)}
     let cart$ = this.store.select(cartSelector);

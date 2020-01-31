@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Order, Delivery, Payment } from '../shared/models/data-model';
 import { Store } from '@ngrx/store';
-import { GET_CART } from '../reducers/types';
-import { CheckoutService } from './checkout.service';
 import { OrderService } from '../order/order.service';
 import { GetCartAction, CartActionTypes } from '../cart/cart.actions';
+import { MessageService } from '../shared/message/message.service';
 
 @Component({
   selector: 'app-checkout',
@@ -22,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   
   constructor(
     private store: Store<any>,
-    private orderService:OrderService
+    private orderService:OrderService,
+    private messageService:MessageService
   ) {
     this.delivery = new Delivery();
     this.payment = new Payment();    
@@ -61,7 +61,9 @@ export class CheckoutComponent implements OnInit {
     console.log('delivery', this.delivery)
     console.log('payment', this.payment)    
 
-    this.orderService.placeOrder(this.delivery, this.payment, this.cartItems).subscribe();
+    this.orderService.placeOrder(this.delivery, this.payment, this.cartItems).subscribe(order => {
+      this.messageService.sendInfo('Your order was successfully placed.')
+    });
   }
 
 }
