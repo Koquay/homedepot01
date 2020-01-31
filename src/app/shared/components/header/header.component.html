@@ -3,17 +3,22 @@
 
     <header>
         <div class="row py-3 px-cust-5">
-            <div class="col-3 d-flex d-lg-flex align-items-end col-md-3"><img class="img-fluid"
-                    src="assets/img/hdlogo.jpg" style="width: 4rem;"><i
-                    class="fa fa-map-marker ml-3 mr-1 d-none d-lg-block"></i><span class="d-none d-lg-block">Find Your
-                    Location</span>
+            <div class="col-3 d-flex d-lg-flex align-items-end col-md-3">
+                <a [routerLink]="['/']">
+                    <img class="img-fluid" src="assets/img/LogoMakr_9skTgi.png" style="width: 4rem;">                    
+                </a>
+                <i class="fa fa-map-marker ml-3 mr-1 d-none d-lg-block"></i>
+                <span class="d-none d-lg-block">Find Your Location</span>
             </div>
             <div id="search-column" class="col d-flex align-items-end col-md-6">
                 <div class="input-group">
                     <div class="input-group-prepend"></div>
                     <input class="form-control" type="text" [(ngModel)]="searchField">
-                    <div class="input-group-append"><button class="btn btn-primary" type="button"><i
-                                class="fa fa-search"></i></button></div>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
                 <ul class="list-unstyled d-block d-none d-lg-block" *ngIf="showSearchResult">
                     <li key={item} class="py-1 px-2" *ngFor="let item of searchResults">
@@ -32,6 +37,7 @@
                     <!-- <span class="mr-1 font-weight-bold">Welcome {{user.name}}</span> -->
                     <a (click)="signOut()">
                         <span class="mr-1 font-weight-bold">Logout</span>
+                        <i class="fa fa-user-o font-weight-bold"></i>
                     </a>
                 </ng-container>
                 <a [routerLink]="['/cart']">
@@ -55,7 +61,9 @@
                                 <i class="fa fa-caret-down ml-1"></i>
                             </a>
                             <ul class="list-unstyled">
-                                <li><a [routerLink]="['/appliances']">Appliances</a></li>
+                                <li>
+                                    <a [routerLink]="['/appliances']">Appliances</a>
+                                </li>
                                 <li><a href="#"><span style="text-decoration: underline;">Bath &amp; Faucets</span></a>
                                 </li>
                                 <li><a href="#">Blinds &amp; Window Treatment</a></li>
@@ -70,28 +78,41 @@
                                 <li><a href="#">Kitchen &amp; Kitchenware</a></li>
                                 <li><a href="#">Lawn &amp; Garden</a></li>
                                 <li><a href="#">Lighting &amp; Ceiling Fans</a></li>
-                                <li><a href="#">AppliaOutdoor Living &amp; Pationces</a></li>
+                                <li><a href="#">Outdoor Living &amp; Patios</a></li>
                                 <li><a href="#">Paint</a></li>
                             </ul>
                         </li>
-                        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Home Decor &amp;
-                                Furniture</a></li>
-                        <li role="presentation" class="nav-item"><a class="nav-link" href="#">DIY Projects &amp;
-                                Ideas</a></li>
-                        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Installation &amp;
-                                Services</a></li>
-                        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Specials &amp; Offers</a>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" [routerLink]="['/appliances']">
+                                Home Decor Furniture
+                            </a>
                         </li>
-                        <li role="presentation" class="nav-item"><a class="nav-link" href="#">Local Ad</a></li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" [routerLink]="['/appliances']">
+                                DIY Projects Ideas
+                            </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" [routerLink]="['/appliances']">
+                                Installation Services
+                            </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" [routerLink]="['/appliances']">
+                                Specials Offers
+                            </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" [routerLink]="['/appliances']">
+                                Local Ad
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="text-center py-lg-1" id="marquee">
             <span class="d-none d-lg-inline-block mr-1">{{marquee}}</span>
-            <!-- <span class="mx-2 d-none d-lg-inline-block">
-                Order by December 20 - thousands of online items eligible
-            </span> -->
             <i class="fa fa-angle-right d-none d-lg-inline-block"></i>
         </div>
     </header>

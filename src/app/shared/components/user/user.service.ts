@@ -8,6 +8,7 @@ import { MessageService } from '../../message/message.service';
 import { Types } from 'src/app/reducers/types';
 import { Store } from '@ngrx/store';
 import { SetCurrentUserAction, UserActionTypes, LogoutUserAction } from './user.actions';
+import { ClearCartAction, CartActionTypes } from 'src/app/cart/cart.actions';
 
 
 @Injectable({
@@ -73,6 +74,7 @@ export class UserService {
     });
 
     this.store.dispatch(new LogoutUserAction(UserActionTypes.LOG_OUT_USER))
+    this.store.dispatch(new ClearCartAction(CartActionTypes.CLEAR_CART))
 
     localStorage.removeItem('user');
     localStorage.removeItem('cart');

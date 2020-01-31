@@ -4,7 +4,7 @@
             <section id="header-section">
                 <div class="row d-none d-md-block">
                     <div class="col d-md-flex d-xl-flex align-items-md-center align-items-xl-center">
-                        <img class="img-fluid" src="assets/img/hdlogo.jpg" style="width: 4rem;">
+                        <img class="img-fluid" src="assets/img/LogoMakr_9skTgi.png" style="width: 4rem;">
                         <span id="page-header" class="ml-1">Secure Checkout</span>
                     </div>
                 </div>
@@ -232,16 +232,17 @@
                                 Place Order
                             </button>
                         </div>
-
                     </div>
                 </section>
             </form>
-
         </div>
         <div class="col" id="right-col">
             <div class="row d-md-none">
-                <div class="col bg-white right-inner-col"><img class="img-fluid" src="assets/img/hdlogo.jpg"
-                        style="width: 4rem;"><span id="page-header" class="ml-1">Secure Checkout</span>
+                <div class="col bg-white right-inner-col">
+                    <a [routerLink]="['/']">
+                        <img class="img-fluid" src="assets/img/LogoMakr_9skTgi.png" style="width: 4rem;">
+                    </a>
+                    <span id="page-header" class="ml-1">Secure Checkout</span>
                 </div>
 
             </div>
@@ -296,12 +297,13 @@
                             </div>
                         </div>
                         <div class="col-2">
-                            <span class="m-ln-1">{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}</span>
+                            <span
+                                class="m-ln-1">{{item.product.price * item.quantity | currency:'USD':'symbol-narrow'}}</span>
                         </div>
                         <div class="col-12">
                             <hr>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="row">

@@ -37,6 +37,13 @@ export const CartReducer = (state = initialState, action: CartActionUnion) => {
                 ...action.cart
             }
 
+            case CartActionTypes.CLEAR_CART:
+                    return {
+                        ...state,
+                        cartItems: [],
+                        summary: {}
+                    }
+
         case CartActionTypes.REMOVE_ITEM:
             return {
                 ...state,

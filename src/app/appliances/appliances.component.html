@@ -76,20 +76,26 @@
                     <div class="row mt-3 d-none d-lg-flex">
                         <div class="col-12 text-center col-md-3"
                             *ngFor="let appliance of appliances.kitchenAppliances.appliances">
-                            <img class="img-fluid" src="assets/img/{{appliance.img}}">
-                            <h6>{{appliance.name}}</h6>
+                            <a [routerLink]="['/brand']">
+                                <img class="img-fluid" src="assets/img/{{appliance.img}}">
+                                <h6>{{appliance.name}}</h6>
+                            </a>
                         </div>
                     </div>
                     <div class="row text-center d-flex justify-content-center mt-4 d-lg-none mobile">
                         <div class="col-6 text-center"
                             *ngFor="let appliance of appliances.kitchenAppliances.mobileAppliances">
-                            <img class="img-fluid" src="assets/img/{{appliance.img}}">
-                            <h6>{{appliance.name}}</h6>
+                            <a [routerLink]="['/brand']">
+                                <img class="img-fluid" src="assets/img/{{appliance.img}}">
+                                <h6>{{appliance.name}}</h6>
+                            </a>
                         </div>
 
                         <div class="col-12 text-center mt-3"
                             *ngFor="let banner of appliances.kitchenAppliances.mobileBanners">
-                            <img class="img-fluid" src="assets/img/{{banner}}">
+                            <a [routerLink]="['/brand']">
+                                <img class="img-fluid" src="assets/img/{{banner}}">
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -135,7 +141,7 @@
                     <div class="row mt-4">
                         <div class="col-2 text-center mb-4" *ngFor="let brand of appliances.topApplianceBrands.brands">
                             <img class="img-fluid" src="assets/img/{{brand.image}}">
-                        </div>                        
+                        </div>
                     </div>
                 </section>
                 <section class="flex-column d-none d-lg-flex mt-5">
@@ -148,7 +154,7 @@
                         <div class="col">
                             <p class="mb-4" *ngFor="let paragraph of appliances.greatAppliances.paragraphs">
                                 {{paragraph}}<br>
-                            </p>                            
+                            </p>
                         </div>
                     </div>
                 </section>

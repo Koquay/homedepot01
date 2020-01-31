@@ -16,6 +16,8 @@ import { CheckoutReducer } from './checkout/checkout.reducer';
 import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 import { UserReducer } from './shared/components/user/userReducer';
 import { HeaderReducer } from './shared/components/header/header.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HeaderReducer } from './shared/components/header/header.reducer';
       checkout: CheckoutReducer,
       user: UserReducer,
       header: HeaderReducer
-    })
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:RequestInterceptor, multi:true}],
   bootstrap: [AppComponent]
