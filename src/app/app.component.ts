@@ -8,7 +8,7 @@ import { CartService } from './cart/cart.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'homedepot01';
+  title = 'Angular Depot';
 
   constructor(
     private userService: UserService,
