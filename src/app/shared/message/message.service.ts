@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertType } from './alert/alert-type.enum';
-import { Alert } from './alert/Alert';
+import { Alert } from './alert/alert';
 import { AlertService } from './alert/alert.service';
 import { throwError } from 'rxjs';
 
