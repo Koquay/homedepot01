@@ -7,7 +7,7 @@ const cors = require('cors');
 const express = require('express');
 const chalk = require('chalk');
 
-process.env.DIST = path.join(__dirname, '../../../dist/homedepot01');
+process.env.DIST = path.join(__dirname, '../../../dist/depotangular');
 process.env.INDEX = path.join(process.env.DIST, '/index.html');
 
 module.exports = (app) => {

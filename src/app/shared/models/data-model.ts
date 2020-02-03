@@ -1,8 +1,8 @@
 
 export class User {
-  public name:String = 'John Homedepot01';
-  public email:String = 'homedepot01@homedepot01.com';
-  public password:String = 'homedepot01';  
+  public name:String = 'John depotangular';
+  public email:String = 'depotangular@depotangular.com';
+  public password:String = 'depotangular';  
 }
 
 export class Product {
