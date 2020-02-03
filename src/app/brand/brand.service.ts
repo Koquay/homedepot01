@@ -28,7 +28,7 @@ export class BrandService {
 
     return this.httpClient.get<{products:[], productCount:number}>(`${this.brandUrl}${queryParams}`).pipe(
       tap(productData => {
-        this.store.dispatch(new AddProductsAction(productData.products, ProductsActionTypes.ADD_PRODUCTS))
+        this.store.dispatch(new AddProductsAction(productData.products))
   
         console.log('productData', productData)
         if(productData.products.length == 0) {
@@ -76,7 +76,7 @@ export class BrandService {
   public getProductsByBrand = (brand) => {
     return this.httpClient.get<[]>(`${this.brandUrl}${brand}`).pipe(
       tap(products => {
-        this.store.dispatch(new AddProductsAction(products, ProductsActionTypes.ADD_PRODUCTS))     
+        this.store.dispatch(new AddProductsAction(products))     
       })
     )
   }

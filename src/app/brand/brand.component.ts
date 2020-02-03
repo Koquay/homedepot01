@@ -33,7 +33,9 @@ export class BrandComponent implements OnInit {
   private getProductsByBrand = () => {
     this.brand = this.activatedRoute.snapshot.paramMap.get('brand');
     let  brandFilter = this.brandFilters.brandFilter.brands.find(filter => filter.name === this.brand)    
-    brandFilter.checked = true;
+    if(brandFilter) {
+      brandFilter.checked = true;
+    }    
     this.filterProducts();    
   }
 

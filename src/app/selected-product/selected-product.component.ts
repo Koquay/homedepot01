@@ -68,7 +68,7 @@ export class SelectedProductComponent implements OnInit {
 
 
   private addToCart() {
-    this.store.dispatch(new AddToCartAction(this.product, 1, ADD_TO_CART))
+    this.store.dispatch(new AddToCartAction(this.product, 1))
 
     this.messageService.sendInfo('Item added to your cart.')
 

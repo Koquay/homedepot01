@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   }
 
   private getCartItems() {
-    this.store.dispatch(new GetCartAction(CartActionTypes.GET_CART))
+    this.store.dispatch(new GetCartAction())
   
     const cartSelector =  (state) => {return(state.cart)}
 
@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   private removeItem = (id) => {
-    this.store.dispatch(new RemoveCartAction(id, CartActionTypes.REMOVE_ITEM))
+    this.store.dispatch(new RemoveCartAction(id))
 
     this.getCartItems();
   }

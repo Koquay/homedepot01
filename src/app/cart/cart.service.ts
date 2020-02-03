@@ -16,7 +16,7 @@ export class CartService {
     let cart = JSON.parse(localStorage.getItem('cart'));
 
     if (cart) {
-      this.store.dispatch(new RestoreCartAction(cart, CartActionTypes.RESTORE_CART))
+      this.store.dispatch(new RestoreCartAction(cart))
     }
   }
 }

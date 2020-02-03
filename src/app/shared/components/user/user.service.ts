@@ -54,7 +54,7 @@ export class UserService {
   private saveUser = (user) => {
     user.isLoggedIn = true;
 
-    this.store.dispatch(new SetCurrentUserAction(user, UserActionTypes.SET_CURRENT_USER))
+    this.store.dispatch(new SetCurrentUserAction(user))
 
     this.isLoggedIn = true;
     this.user = user;
@@ -73,8 +73,8 @@ export class UserService {
       type: Types.LOGOUT_CURRENT_USER
     });
 
-    this.store.dispatch(new LogoutUserAction(UserActionTypes.LOG_OUT_USER))
-    this.store.dispatch(new ClearCartAction(CartActionTypes.CLEAR_CART))
+    this.store.dispatch(new LogoutUserAction())
+    this.store.dispatch(new ClearCartAction())
 
     localStorage.removeItem('user');
     localStorage.removeItem('cart');

@@ -5,14 +5,11 @@ export enum ProductsActionTypes {
 }
 
 export class AddProductsAction implements Action {
-    type: ProductsActionTypes.ADD_PRODUCTS
+    readonly type = ProductsActionTypes.ADD_PRODUCTS;
 
     constructor(
-        public products: [],
-        type
-    ) {
-        this.type = type;
-    }
+        public products: []
+    ) {}
 }
 
 export type ProductsActionUnion = AddProductsAction;

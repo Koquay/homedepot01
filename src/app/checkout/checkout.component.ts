@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order, Delivery, Payment } from '../shared/models/data-model';
 import { Store } from '@ngrx/store';
 import { OrderService } from '../order/order.service';
-import { GetCartAction, CartActionTypes } from '../cart/cart.actions';
+import { GetCartAction, CartActionTypes, ClearCartAction } from '../cart/cart.actions';
 import { MessageService } from '../shared/message/message.service';
 
 @Component({
@@ -34,7 +34,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   private getCart() {
-    this.store.dispatch(new GetCartAction(CartActionTypes.GET_CART))
+    this.store.dispatch(new GetCartAction())
   
     const cartSelector =  (state) => {return(state.cart)}
 
@@ -63,6 +63,7 @@ export class CheckoutComponent implements OnInit {
 
     this.orderService.placeOrder(this.delivery, this.payment, this.cartItems).subscribe(order => {
       this.messageService.sendInfo('Your order was successfully placed.')
+      // this.store.dispatch(new ClearCartAction())
     });
   }
 
