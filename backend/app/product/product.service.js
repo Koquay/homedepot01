@@ -9,7 +9,7 @@ exports.getProducts = async (filterstring) => {
 
     try {
         const products = await Product.aggregate(aggregatePipeline)
-        // console.log('products', products)
+        console.log('products', products)
         
         const productCount = await getProductCount(productCountPipeline)
 
